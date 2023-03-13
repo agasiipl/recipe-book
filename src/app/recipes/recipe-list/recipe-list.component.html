@@ -7,6 +7,7 @@
 <div class="row">
     <div class="col-xs-12">
       <app-recipe-item
+      data-cy="recipe-item"
         *ngFor="let recipeEl of recipes; let i = index"
       [recipe]="recipeEl"
       [index]="i"
