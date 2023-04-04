@@ -16,7 +16,7 @@ import { PlaceholderDirective } from "../shared/placeholder/placeholder.directiv
 @Component({
   selector: "app-auth",
   templateUrl: "./auth.component.html",
-  styleUrls: ["./auth.component.css"],
+  styleUrls: ["./auth.component.scss"],
 })
 export class AuthComponent implements OnInit, OnDestroy {
   isLoginMode = true;
