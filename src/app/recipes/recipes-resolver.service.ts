@@ -11,11 +11,7 @@ import * as fromApp from "../store/app.reducer";
 import * as RecipesActions from "../recipes/store/recipe.actions";
 import { Actions, ofType } from "@ngrx/effects";
 
-<<<<<<< HEAD
-@Injectable()
-=======
 @Injectable({ providedIn: "root" })
->>>>>>> 13adf467e6efa6f3d5e71a0c0e5fcc879aeeafec
 export class RecipesResolverService implements Resolve<Recipe[]> {
   constructor(
     private store: Store<fromApp.AppState>,

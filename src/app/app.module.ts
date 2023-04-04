@@ -19,8 +19,6 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
   declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     SharedModule,

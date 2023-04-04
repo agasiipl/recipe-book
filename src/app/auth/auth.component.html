@@ -8,7 +8,7 @@
   </div>
   <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
     <div class="col-xs-12 form-group">
-      <label for="email">E-Mail</label>
+      <label for="email" data-cy="login-email">E-Mail</label>
       <input
         type="email"
         id="email"

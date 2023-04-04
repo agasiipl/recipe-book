@@ -20,7 +20,11 @@
           <a style="cursor: pointer" (click)="onLogout()">Log out</a>
         </li>
         <li class="dropdown" appDropdown *ngIf="isAuthenticated">
-          <a style="cursor: pointer" class="dropdown-toggle" role="button"
+          <a
+            style="cursor: pointer"
+            class="dropdown-toggle"
+            data-cy="manage"
+            role="button"
             >Manage <span class="caret"></span
           ></a>
           <ul class="dropdown-menu">
@@ -28,7 +32,12 @@
               <a style="cursor: pointer" (click)="onSaveData()">Save Data</a>
             </li>
             <li>
-              <a style="cursor: pointer" (click)="onFetchData()">Fetch Data</a>
+              <a
+                style="cursor: pointer"
+                (click)="onFetchData()"
+                data-cy="fetch-data"
+                >Fetch Data</a
+              >
             </li>
           </ul>
         </li>
