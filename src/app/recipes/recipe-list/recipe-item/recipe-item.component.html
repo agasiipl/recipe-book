@@ -3,9 +3,10 @@
   [routerLink]="[index]"
   routerLinkActive="active"
   class="list-group-item clearfix"
+  data-cy="recipe-item-name"
 >
   <div class="pull-left">
-    <h4 class="list-group-item-heading" data-cy="recipe-item-name">
+    <h4 class="list-group-item-heading">
       {{ recipe.name }}
     </h4>
     <p class="list-group-item-text">{{ recipe.description }}</p>
