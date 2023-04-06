@@ -11,7 +11,7 @@ import * as RecipesActions from "../recipes/store/recipe.actions";
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
-  private userSub: Subscription;
+  public userSub: Subscription;
 
   constructor(private store: Store<fromApp.AppState>) {}
 
