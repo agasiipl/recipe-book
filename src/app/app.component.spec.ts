@@ -9,6 +9,7 @@ import {
 } from "@angular/platform-browser-dynamic/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { HeaderComponent } from "./header/header.component";
 
 describe("AppComponent", () => {
   let store: Store<fromApp.AppState>;
@@ -23,11 +24,11 @@ describe("AppComponent", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [StoreModule.forRoot(fromApp.appReducer), RouterTestingModule],
-      declarations: [AppComponent],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      declarations: [AppComponent, HeaderComponent],
     });
 
     store = TestBed.inject(Store);
+
     jest.spyOn(store, "dispatch");
   });
 

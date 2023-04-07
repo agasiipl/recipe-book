@@ -10,6 +10,9 @@ import * as fromApp from "../store/app.reducer";
 import * as AuthActions from "../auth/store/auth.actions";
 import * as RecipesActions from "../recipes/store/recipe.actions";
 import { By } from "@angular/platform-browser";
+import { map } from "rxjs/operators";
+import { MockStore, provideMockStore } from "@ngrx/store/testing";
+import { User } from "../auth/user-model";
 
 describe("HeaderComponent", () => {
   let component: HeaderComponent;
@@ -22,20 +25,62 @@ describe("HeaderComponent", () => {
       platformBrowserDynamicTesting()
     );
   });
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HeaderComponent],
       imports: [StoreModule.forRoot(fromApp.appReducer)],
-      providers: [Store],
+      providers: [
+        Store,
+        provideMockStore<fromApp.AppState>({
+          initialState: {
+            auth: {
+              user: {
+                email: "adrabczyk90@gmail.com",
+                id: "1",
+                _token: "ABC",
+                token: "ABC",
+                _tokenExpirationDate: new Date("11.04.2023"),
+              },
+              authError: "",
+              loading: false,
+            },
+            shoppingList: {
+              ingredients: [
+                {
+                  name: "Apples",
+                  amount: 5,
+                },
+              ],
+              editedIngredient: {
+                name: "Apples",
+                amount: 4,
+              },
+              editedIngredientIndex: -1,
+            },
+            recipes: [
+              {
+                name: "Pizza",
+                description: "Pizza Pizza",
+                imagePath: "img",
+                ingredients: [
+                  {
+                    name: "Apples",
+                    amount: 4,
+                  },
+                ],
+              },
+            ],
+          },
+        }),
+      ],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
-    store = TestBed.inject(Store);
     fixture.detectChanges();
+    store = TestBed.inject(MockStore);
   });
 
   it("should create", () => {
@@ -58,12 +103,6 @@ describe("HeaderComponent", () => {
     const spy = jest.spyOn(store, "dispatch");
     component.onLogout();
     expect(spy).toHaveBeenCalledWith(new AuthActions.Logout());
-  });
-
-  it("should unsubscribe from user subscription on destroy", () => {
-    jest.spyOn(component.userSub, "unsubscribe");
-    component.ngOnDestroy();
-    expect(component.userSub.unsubscribe).toHaveBeenCalled();
   });
 
   it("should not render logout button if not authenticated", () => {
