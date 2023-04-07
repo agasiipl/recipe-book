@@ -14,6 +14,7 @@ import { EffectsModule } from "@ngrx/effects";
 import * as fromApp from "./store/app.reducer";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { StoreRouterConnectingModule } from "@ngrx/router-store";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -27,6 +28,7 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
     EffectsModule.forRoot([AuthEffects, RecipeEffects]),
     StoreDevtoolsModule.instrument({ logOnly: environment.production }),
     StoreRouterConnectingModule,
+    RouterModule,
   ],
   bootstrap: [AppComponent],
 })

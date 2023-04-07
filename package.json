@@ -28,6 +28,7 @@
     "@ngrx/router-store": "^14.3.3",
     "@ngrx/store": "^14.3.3",
     "bootstrap": "^3.4.1",
+    "jest-circus": "^29.5.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

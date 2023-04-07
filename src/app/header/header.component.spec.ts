@@ -7,7 +7,7 @@ import {
 import { Store, StoreModule } from "@ngrx/store";
 import { HeaderComponent } from "./header.component";
 import * as fromApp from "../store/app.reducer";
-import * as AuthActions from "./../auth/store/auth.actions";
+import * as AuthActions from "../auth/store/auth.actions";
 import * as RecipesActions from "../recipes/store/recipe.actions";
 import { By } from "@angular/platform-browser";
 
@@ -27,6 +27,7 @@ describe("HeaderComponent", () => {
     await TestBed.configureTestingModule({
       declarations: [HeaderComponent],
       imports: [StoreModule.forRoot(fromApp.appReducer)],
+      providers: [Store],
     }).compileComponents();
   });
 
