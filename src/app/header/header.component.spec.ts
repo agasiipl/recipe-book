@@ -16,7 +16,7 @@ import { User } from "../auth/user-model";
 describe("HeaderComponent", () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
-  let store: MockStore<fromApp.AppState>;
+  let store: MockStore<Partial<fromApp.AppState>>;
 
   beforeAll(() => {
     TestBed.initTestEnvironment(
@@ -29,7 +29,7 @@ describe("HeaderComponent", () => {
       declarations: [HeaderComponent],
       imports: [StoreModule.forRoot(fromApp.appReducer)],
       providers: [
-        provideMockStore<fromApp.AppState>({
+        provideMockStore<Partial<fromApp.AppState>>({
           initialState: {
             auth: {
               user: {
@@ -42,20 +42,6 @@ describe("HeaderComponent", () => {
               authError: "",
               loading: false,
             },
-            shoppingList: {
-              ingredients: [
-                {
-                  name: "Apples",
-                  amount: 5,
-                },
-              ],
-              editedIngredient: {
-                name: "Apples",
-                amount: 4,
-              },
-              editedIngredientIndex: -1,
-            },
-            recipes: undefined,
           },
         }),
       ],
@@ -109,19 +95,6 @@ describe("HeaderComponent", () => {
         user: expectedValue,
         authError: "",
         loading: false,
-      },
-      shoppingList: {
-        ingredients: [
-          {
-            name: "Apples",
-            amount: 5,
-          },
-        ],
-        editedIngredient: {
-          name: "Apples",
-          amount: 4,
-        },
-        editedIngredientIndex: -1,
       },
     };
     store.setState(mockState);
