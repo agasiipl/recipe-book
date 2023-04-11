@@ -6,7 +6,7 @@ import { ActionReducerMap } from "@ngrx/store";
 export interface AppState {
   shoppingList: fromShoppingList.State;
   auth: fromAuth.State;
-  recipes: fromRecipes.State;
+  recipes?: fromRecipes.State;
 }
 
 export const appReducer: ActionReducerMap<AppState> = {
