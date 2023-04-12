@@ -14,10 +14,7 @@ import {
   Store,
   StoreModule,
 } from "@ngrx/store";
-import { InjectionToken } from "@angular/core";
-import { AuthGuard } from "./auth/auth.guard";
 import { AuthService } from "./auth/auth.service";
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/compiler";
 import { AuthInterceptorService } from "./auth/auth-interceptor.service";
 import * as fromApp from "./store/app.reducer";
 
@@ -48,7 +45,6 @@ describe("AppRoutingModule", () => {
         AuthService,
         AuthInterceptorService,
       ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
   );
 

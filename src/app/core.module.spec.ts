@@ -14,13 +14,10 @@ import {
   Store,
   StoreModule,
 } from "@ngrx/store";
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { AuthService } from "./auth/auth.service";
 import * as fromApp from "./store/app.reducer";
 
 describe("CoreModule", () => {
-  let store: Store<fromApp.AppState>;
-
   beforeAll(() => {
     TestBed.initTestEnvironment(
       BrowserDynamicTestingModule,
@@ -40,7 +37,6 @@ describe("CoreModule", () => {
         AuthService,
         AuthInterceptorService,
       ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
   });
 
