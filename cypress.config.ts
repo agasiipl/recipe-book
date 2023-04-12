@@ -3,7 +3,7 @@ import { defineConfig } from "cypress";
 export default defineConfig({
   e2e: {
     baseUrl: "http://localhost:4200/",
-    supportFile: false,
+    supportFile: "./cypress/support/index.ts",
     specPattern: "**/*.cy.ts",
   },
   component: {
@@ -15,6 +15,6 @@ export default defineConfig({
   },
   env: {
     email: "adrabczyk90@gmail.com",
-    password: "",
+    password: "111111",
   },
 });

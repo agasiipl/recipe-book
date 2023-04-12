@@ -3,17 +3,7 @@ describe("Recipe Details page", () => {
     const email = Cypress.env("email");
     const password = Cypress.env("password");
     cy.login(email, password);
-    // cy.intercept("POST", "http://localhost:4200/auth", (req) => {
-    //   req.reply({
-    //     statusCode: 200,
-    //   });
-    // });
 
-    // cy.visit("/auth");
-    // cy.get('[data-cy="login-email"]').type(email);
-    // cy.get('[data-cy="login-password"]').type(password);
-    // cy.get('[data-cy="login-button"]').should("be.visible");
-    // cy.get('[data-cy="login-button"]').click();
     cy.url().should("include", "/recipes");
     cy.get('[data-cy="add-new-recipe"]').should("be.visible");
     cy.get('[data-cy="add-new-recipe"]').click();
